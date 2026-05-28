@@ -1,11 +1,12 @@
+import { Link } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="border-t border-border/60 py-14 mt-10">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-start justify-between gap-10">
-          <div className="max-w-sm">
+        <div className="grid lg:grid-cols-5 gap-10">
+          <div className="lg:col-span-2 max-w-sm">
             <div className="flex items-center gap-2 mb-4">
               <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-cyan">
                 <Sparkles className="h-4 w-4 text-primary-foreground" />
@@ -13,38 +14,43 @@ export function Footer() {
               <span className="font-display font-bold text-lg">NexaForge<span className="text-gradient"> AI</span></span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              World-class AI agents & automation systems for high-growth companies.
-              Stockholm · Dubai · New York.
+              Automate everything. Scale infinitely. Production-grade AI agents and
+              automation systems for high-growth companies.
             </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
-            <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Services</div>
-              <ul className="space-y-2">
-                <li><a href="#services" className="hover:text-foreground text-muted-foreground">AI Agents</a></li>
-                <li><a href="#services" className="hover:text-foreground text-muted-foreground">n8n Workflows</a></li>
-                <li><a href="#services" className="hover:text-foreground text-muted-foreground">WhatsApp AI</a></li>
-                <li><a href="#services" className="hover:text-foreground text-muted-foreground">CRM Automation</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Company</div>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-foreground text-muted-foreground">About</a></li>
-                <li><a href="#portfolio" className="hover:text-foreground text-muted-foreground">Case Studies</a></li>
-                <li><a href="#pricing" className="hover:text-foreground text-muted-foreground">Pricing</a></li>
-                <li><a href="#contact" className="hover:text-foreground text-muted-foreground">Contact</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Legal</div>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-foreground text-muted-foreground">Privacy</a></li>
-                <li><a href="#" className="hover:text-foreground text-muted-foreground">Terms</a></li>
-                <li><a href="#" className="hover:text-foreground text-muted-foreground">GDPR</a></li>
-              </ul>
+            <div className="mt-5 text-xs text-muted-foreground space-y-1">
+              <div>Stockholm · Dubai · New York · London</div>
+              <div>hello@nexaforge.ai</div>
             </div>
           </div>
+          <FooterCol title="Services" links={[
+            ["AI Agents", "/services/ai-agents"],
+            ["n8n Automation", "/services/n8n-automation"],
+            ["WhatsApp AI", "/services/whatsapp-automation"],
+            ["CRM Automation", "/services/crm-automation"],
+            ["Voice AI", "/services/voice-ai"],
+            ["AI Analytics", "/services/ai-analytics"],
+          ]} />
+          <FooterCol title="Industries" links={[
+            ["Healthcare", "/industries/healthcare"],
+            ["Real Estate", "/industries/real-estate"],
+            ["E-commerce", "/industries/ecommerce"],
+            ["SaaS", "/industries/saas"],
+            ["Finance", "/industries/finance"],
+            ["Logistics", "/industries/logistics"],
+          ]} />
+          <FooterCol title="Company" links={[
+            ["About", "/about"],
+            ["Case Studies", "/case-studies"],
+            ["Portfolio", "/portfolio"],
+            ["Pricing", "/pricing"],
+            ["Blog", "/blog"],
+            ["Resources", "/resources"],
+            ["ROI Calculator", "/roi-calculator"],
+            ["AI Audit", "/ai-audit"],
+            ["Contact", "/contact"],
+            ["Privacy", "/privacy-policy"],
+            ["Terms", "/terms"],
+          ]} />
         </div>
         <div className="mt-12 pt-6 border-t border-border/60 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
           <div>© 2026 NexaForge AI. All rights reserved.</div>
@@ -52,5 +58,22 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterCol({ title, links }: { title: string; links: [string, string][] }) {
+  return (
+    <div>
+      <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">{title}</div>
+      <ul className="space-y-2 text-sm">
+        {links.map(([label, to]) => (
+          <li key={to}>
+            <Link to={to} className="text-muted-foreground hover:text-foreground transition-colors">
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
