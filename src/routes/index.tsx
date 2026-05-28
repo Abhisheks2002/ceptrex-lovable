@@ -2,11 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
+import { ProblemSection } from "@/components/site/ProblemSection";
 import { Services } from "@/components/site/Services";
-import { Portfolio } from "@/components/site/Portfolio";
 import { Process } from "@/components/site/Process";
+import { Portfolio } from "@/components/site/Portfolio";
+import { StatsBand } from "@/components/site/StatsBand";
+import { TechCloud } from "@/components/site/TechCloud";
 import { Testimonials } from "@/components/site/Testimonials";
 import { Pricing } from "@/components/site/Pricing";
+import { FAQ } from "@/components/site/FAQ";
 import { CTA } from "@/components/site/CTA";
 
 export const Route = createFileRoute("/")({
@@ -17,28 +21,29 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "We build production-grade AI agents, n8n workflows, WhatsApp AI and CRM automation for high-growth companies. Fixed-price builds in 28 days.",
+          "Premium AI automation agency building production-grade agents, n8n workflows, WhatsApp AI and voice agents for high-growth companies in the US, UK, UAE & Europe.",
       },
-      { property: "og:title", content: "NexaForge AI — AI Agents & Automation Agency" },
-      { property: "og:description", content: "Production-grade AI agents & automation in 28 days." },
+      { property: "og:title", content: "NexaForge AI — Automate Everything. Scale Infinitely." },
+      { property: "og:description", content: "180+ AI systems shipped. $2M+ in client revenue. 28-day delivery." },
     ],
   }),
 });
 
 function Index() {
   return (
-    <div className="min-h-screen">
-      {/* Index reuses SiteLayout-less structure so Hero can own the top */}
-      <SiteLayout>
-        <Hero />
-        <Marquee />
-        <Services />
-        <Portfolio />
-        <Process />
-        <Testimonials />
-        <Pricing />
-        <CTA />
-      </SiteLayout>
-    </div>
+    <SiteLayout>
+      <Hero />
+      <Marquee />
+      <ProblemSection />
+      <Services />
+      <Process />
+      <Portfolio />
+      <StatsBand />
+      <TechCloud />
+      <Testimonials />
+      <Pricing />
+      <FAQ />
+      <CTA />
+    </SiteLayout>
   );
 }
