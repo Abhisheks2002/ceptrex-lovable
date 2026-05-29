@@ -32,6 +32,7 @@ import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as DashboardLeadsRouteImport } from './routes/dashboard.leads'
+import { Route as DashboardAnalyticsRouteImport } from './routes/dashboard.analytics'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
@@ -150,6 +151,11 @@ const DashboardLeadsRoute = DashboardLeadsRouteImport.update({
   path: '/dashboard/leads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardAnalyticsRoute = DashboardAnalyticsRouteImport.update({
+  id: '/dashboard/analytics',
+  path: '/dashboard/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -182,6 +188,7 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/leads': typeof DashboardLeadsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
@@ -209,6 +216,7 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/leads': typeof DashboardLeadsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
@@ -237,6 +245,7 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/leads': typeof DashboardLeadsRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
@@ -266,6 +275,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/dashboard/analytics'
     | '/dashboard/leads'
     | '/industries/$slug'
     | '/portfolio/$slug'
@@ -293,6 +303,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/dashboard/analytics'
     | '/dashboard/leads'
     | '/industries/$slug'
     | '/portfolio/$slug'
@@ -320,6 +331,7 @@ export interface FileRouteTypes {
     | '/terms'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/dashboard/analytics'
     | '/dashboard/leads'
     | '/industries/$slug'
     | '/portfolio/$slug'
@@ -346,6 +358,7 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRouteWithChildren
   TechStackRoute: typeof TechStackRoute
   TermsRoute: typeof TermsRoute
+  DashboardAnalyticsRoute: typeof DashboardAnalyticsRoute
   DashboardLeadsRoute: typeof DashboardLeadsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
@@ -513,6 +526,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardLeadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/analytics': {
+      id: '/dashboard/analytics'
+      path: '/dashboard/analytics'
+      fullPath: '/dashboard/analytics'
+      preLoaderRoute: typeof DashboardAnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/$slug'
@@ -607,6 +627,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRouteWithChildren,
   TechStackRoute: TechStackRoute,
   TermsRoute: TermsRoute,
+  DashboardAnalyticsRoute: DashboardAnalyticsRoute,
   DashboardLeadsRoute: DashboardLeadsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
