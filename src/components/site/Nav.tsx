@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import ceptrexLogo from "@/assets/ceptrex-logo.png";
 
 const links = [
   { to: "/services", label: "Services" },
