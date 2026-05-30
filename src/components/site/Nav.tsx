@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import ceptrexLogo from "@/assets/ceptrex-logo.png";
 
 const links = [
   { to: "/services", label: "Services" },
@@ -19,12 +20,7 @@ export function Nav() {
     <header className="fixed top-0 inset-x-0 z-40 backdrop-blur-xl bg-background/60 border-b border-border/40">
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 group" onClick={() => setOpen(false)}>
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-cyan glow-purple">
-            <Sparkles className="h-4 w-4 text-primary-foreground" />
-          </span>
-          <span className="font-display font-bold text-lg tracking-tight">
-            Ceptrex<span className="text-gradient"> AI</span>
-          </span>
+          <img src={ceptrexLogo} alt="Ceptrex" className="h-8 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm text-muted-foreground">
           {links.map((l) => (
