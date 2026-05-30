@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles } from "lucide-react";
+import ceptrexLogo from "@/assets/ceptrex-logo.png";
 
 export function Footer() {
   return (
@@ -8,10 +8,7 @@ export function Footer() {
         <div className="grid lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 max-w-sm">
             <div className="flex items-center gap-2 mb-4">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-cyan">
-                <Sparkles className="h-4 w-4 text-primary-foreground" />
-              </span>
-              <span className="font-display font-bold text-lg">Ceptrex<span className="text-gradient"> AI</span></span>
+              <img src={ceptrexLogo} alt="Ceptrex" className="h-9 w-auto" />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Automate everything. Scale infinitely. Production-grade AI agents and
