@@ -30,7 +30,10 @@ export function Footer() {
             ["CRM Automation", "/services/crm-automation"],
             ["Voice AI", "/services/voice-ai"],
             ["AI Analytics", "/services/ai-analytics"],
+            ["Website Building", "/services/website-building"],
+            ["App Development", "/services/app-development"],
           ]} />
+
           <FooterCol title="Industries" links={[
             ["Healthcare", "/industries/healthcare"],
             ["Real Estate", "/industries/real-estate"],
