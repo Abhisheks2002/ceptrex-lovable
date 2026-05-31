@@ -27,26 +27,29 @@ export function Services() {
         </div>
 
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s) => (
-            <div
+            <Link
               key={s.title}
-              className="group relative rounded-2xl border border-border bg-surface/60 backdrop-blur p-7 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+              to="/services/$slug"
+              params={{ slug: s.slug }}
+              className="group relative rounded-2xl border border-border bg-surface/60 backdrop-blur p-7 cursor-pointer transition-all duration-300 hover:border-primary/50 hover:-translate-y-1"
             >
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-cyan/5 transition-all duration-500" />
               <div className="relative">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary/20 to-cyan/10 border border-primary/30 mb-5 group-hover:scale-110 transition-transform">
                   <s.icon className="h-5 w-5 text-cyan" />
                 </div>
-                <h3 className="font-display text-2xl font-semibold mb-2">{s.title}</h3>
+                <h3 className="font-display text-xl font-semibold mb-2">{s.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 <div className="mt-6 pt-4 border-t border-border/60 text-xs font-mono text-muted-foreground">
                   {s.tag}
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+
       </div>
     </section>
   );
