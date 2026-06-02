@@ -25,7 +25,7 @@ export function Nav() {
           aria-label="CEPTREX — AI Automation Agency"
           onClick={() => setOpen(false)}
         >
-          <Logo size={36} />
+          <Logo height={44} priority className="md:!h-12" />
         </Link>
         <nav className="hidden lg:flex items-center gap-7 text-sm text-muted-foreground">
           {links.map((l) => (

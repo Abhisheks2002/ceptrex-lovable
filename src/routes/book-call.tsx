@@ -1,25 +1,43 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/site/SiteLayout";
+import { CalBooking } from "@/components/widgets/CalBooking";
 import { Check, Calendar } from "lucide-react";
 
 export const Route = createFileRoute("/book-call")({
   component: BookCall,
   head: () => ({
     meta: [
-      { title: "Book a Call — Ceptrex" },
-      { name: "description", content: "Book a free 30-minute strategy call with Ceptrex. We'll map your workflows and identify your top automation opportunities." },
-      { property: "og:title", content: "Book a Call — Ceptrex" },
-      { property: "og:description", content: "Free 30-min strategy call. No pitch." },
+      { title: "Book AI Automation Strategy Call | CEPTREX" },
+      { name: "description", content: "Schedule a free AI automation consultation with CEPTREX. Talk to a senior engineer — never an SDR." },
+      { property: "og:title", content: "Book AI Automation Strategy Call | CEPTREX" },
+      { property: "og:description", content: "Free 30-min strategy call. No pitch. 1-page roadmap within 48h." },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Free AI Automation Strategy Call",
+        provider: { "@type": "Organization", name: "Ceptrex" },
+        areaServed: ["US", "GB", "AE", "EU"],
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      }),
+    }],
   }),
 });
 
 function BookCall() {
   return (
     <SiteLayout>
-      <PageHeader eyebrow="Book a Call" title="Let's map your" highlight="first AI workflow" subtitle="Pick a 30-min slot below. You'll talk to a senior engineer — never a SDR." />
-      <section className="py-10">
-        <div className="mx-auto max-w-5xl px-6 grid lg:grid-cols-5 gap-8">
+      <PageHeader
+        eyebrow="Book a Call"
+        title="Let's map your"
+        highlight="first AI workflow"
+        subtitle="Pick a 30-min slot below. You'll talk to a senior engineer — never an SDR."
+      />
+      <section className="pb-16">
+        <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-5 gap-8">
           <aside className="lg:col-span-2 space-y-4">
             <Item text="Talk to a senior engineer, not a salesperson" />
             <Item text="Live screen-share workflow audit" />
@@ -30,19 +48,12 @@ function BookCall() {
               Prefer email? Reach us at <a className="text-cyan" href="mailto:hello@ceptrex.com">hello@ceptrex.com</a> — we reply within 4 hours.
             </div>
           </aside>
-          <div className="lg:col-span-3 rounded-3xl border border-border bg-surface/60 backdrop-blur p-7">
-            <div className="flex items-center gap-3 mb-5">
+          <div className="lg:col-span-3">
+            <div className="flex items-center gap-3 mb-4">
               <Calendar className="h-5 w-5 text-cyan" />
               <h2 className="font-display text-xl font-bold">Pick your slot</h2>
             </div>
-            <div className="aspect-[4/5] sm:aspect-[5/4] rounded-2xl border border-border bg-surface-elevated/60 flex flex-col items-center justify-center text-center p-8">
-              <div className="font-display text-2xl font-bold mb-2">Schedule on Cal.com</div>
-              <p className="text-sm text-muted-foreground mb-5">Embedded scheduler placeholder. Connect your Cal.com or Calendly to surface live availability here.</p>
-              <a href="https://cal.com/ceptrex/strategy" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-cyan px-6 py-3 text-sm font-semibold text-primary-foreground">
-                Open scheduler
-              </a>
-              <Link to="/ai-audit" className="mt-4 text-xs text-muted-foreground hover:text-foreground">or request via the audit form →</Link>
-            </div>
+            <CalBooking />
           </div>
         </div>
       </section>
