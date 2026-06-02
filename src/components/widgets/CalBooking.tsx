@@ -18,6 +18,9 @@ export function CalBooking({ calLink = "ceptrex/30min", className = "" }: Props)
       cal("ui", {
         theme: "dark",
         cssVarsPerTheme: {
+          light: {
+            "cal-brand": "#6C63FF",
+          },
           dark: {
             "cal-brand": "#6C63FF",
             "cal-bg": "#0A0A0F",
