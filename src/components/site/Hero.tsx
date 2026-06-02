@@ -1,6 +1,6 @@
 import { ArrowRight, Play } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import ceptrexIcon from "@/assets/ceptrex-icon.png";
+import { Logo } from "./Logo";
 
 export function Hero() {
   return (
@@ -10,13 +10,7 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 text-center">
         <div className="flex justify-center mb-8 animate-[fadeUp_1.2s_ease-out]">
-          <img
-            src={ceptrexIcon}
-            alt="CEPTREX AI Automation Agency Logo"
-            width={120}
-            height={120}
-            className="h-[120px] w-[120px] object-contain drop-shadow-[0_0_40px_rgba(108,99,255,0.45)]"
-          />
+          <Logo height={120} priority className="!drop-shadow-[0_0_40px_rgba(108,99,255,0.45)]" />
         </div>
 
         <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-surface/60 backdrop-blur px-4 py-1.5 text-xs text-muted-foreground mb-8">

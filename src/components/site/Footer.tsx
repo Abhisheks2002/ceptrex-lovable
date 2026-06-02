@@ -8,7 +8,7 @@ export function Footer() {
         <div className="grid lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 max-w-sm">
             <div className="group mb-4 inline-flex opacity-90 hover:opacity-100 transition-opacity">
-              <Logo size={42} />
+              <Logo height={42} />
             </div>
             <div className="text-xs uppercase tracking-[0.2em] text-cyan font-mono mb-3">
               AI Automation Agency
