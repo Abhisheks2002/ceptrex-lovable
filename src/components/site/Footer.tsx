@@ -53,7 +53,7 @@ export function Footer() {
             ["AI Audit", "/ai-audit"],
             ["Contact", "/contact"],
             ["Tech Stack", "/tech-stack"],
-            ["Admin", "/dashboard"],
+            
             ["Privacy", "/privacy-policy"],
             ["Terms", "/terms"],
           ]} />
