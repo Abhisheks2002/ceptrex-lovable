@@ -5,8 +5,9 @@
  * hard-wires the @cloudflare/vite-plugin and emits a Cloudflare Worker bundle.
  * That bundle is incompatible with Vercel — hence the 404: NOT_FOUND error.
  *
- * This config uses TanStack Start + the 'vercel' nitro preset directly,
- * bypassing the Cloudflare plugin entirely.
+ * Fix: use tanstackStart directly (no Cloudflare plugin).
+ * The `server.preset` option does NOT exist in this version of tanstackStart —
+ * Vercel deployment is handled by the post-build scripts/build-vercel.mjs instead.
  */
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -21,7 +22,6 @@ export default defineConfig({
     TanStackRouterVite({ autoCodeSplitting: true }),
     tanstackStart({
       server: {
-        preset: "vercel",
         entry: "src/server.vercel.ts",
       },
     }),
